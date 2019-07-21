@@ -3,6 +3,8 @@ var app = express();
 var fs = require("fs");
 var path = require('path');
 
+var jenkinsTask = require('./task/task_jenkins')
+
 var user = {
    "user4" : {
       "name" : "mohit",
@@ -30,6 +32,9 @@ app.post('/reply', function (req, res) {
 })
 
 app.get('/listUsers', function (req, res) {
+   var jt = new jenkinsTask();
+   jt.doRun();
+   
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
       console.log( data );
       res.end( data );
