@@ -25,6 +25,7 @@
   "homepage": "https://github.com/leopck/boilerplate-node-restful-task#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "jenkins-api": "^0.3.1"
+    "jenkins-api": "^0.3.1",
+    "twilio": "^3.33.1"
   }
 }

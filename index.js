@@ -3,7 +3,7 @@ var app = express();
 var fs = require("fs");
 var path = require('path');
 
-var jenkinsTask = require('./task/task_jenkins')
+var jenkinsTask = require('./task/task_twilio')
 
 var user = {
    "user4" : {
@@ -14,27 +14,7 @@ var user = {
    }
 }
 
-app.post('/reply', function (req, res) {  
-   // console.log(res);
-   console.log(req.body);
-   
-   // data = JSON.parse(res);
-   // console.log(data);
-   
-   res.end( "JSON.stringify(data)" );
-   // fs.writeFile('reply.json', 'Simply Easy Learning!', function(err) {
-   //    if (err) {
-   //       return console.error(err);
-   //    }
-   //    console.log("Data written successfully!");
-   //    console.log("Let's read newly written data");
-   // });
-})
-
 app.get('/listUsers', function (req, res) {
-   var jt = new jenkinsTask();
-   jt.doRun();
-   
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
       console.log( data );
       res.end( data );
